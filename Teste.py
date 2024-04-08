@@ -50,14 +50,10 @@ titulos = driver.find_elements(By.XPATH,"//h3[@class='styles__Title-sc-1ac06td-4
 precos = driver.find_elements(By.XPATH,"//span[@class='card-price']")
 
 # Criação da planilha "COBASI" e preenchimento com os dados coletados da página 1
-sheet_Sheet2 = workbook.create_sheet('COBASI')
-sheet_Sheet2['A1'].value = 'Nome do Produto'
-sheet_Sheet2['B1'].value = 'Preço'
-sheet_Sheet2['C1'].value = 'Empresa'
 empresas2 = 'COBASI'
 
 for titulo, preco in zip(titulos[1::2], precos[0::2]):
-    sheet_Sheet2.append([titulo.text,preco.text,empresas2])
+    sheet_Sheet.append([titulo.text,preco.text,empresas2])
 
 # Abertura de uma nova instância do WebDriver para acessar a página 2 do site Cobasi
 driver = webdriver.Chrome()
@@ -68,13 +64,13 @@ titulos = driver.find_elements(By.XPATH,"//h3[@class='styles__Title-sc-1ac06td-4
 precos = driver.find_elements(By.XPATH,"//span[@class='card-price']")
 
 # Preenchimento da planilha "COBASI" com os dados coletados da página 2
-sheet_Sheet2 = workbook['COBASI']
 for titulo, preco in zip(titulos[1::2], precos[0::2]):
-    sheet_Sheet2.append([titulo.text,preco.text,empresas2])
+    sheet_Sheet.append([titulo.text,preco.text,empresas2])
 
 # Salvamento do arquivo Excel
-workbook.save(r'C:\Users\RH1\Desktop\VS\Estudos\Teste\RAÇÕES.xlsx')
+workbook.save(r'C:\Users\RH1\Desktop\Teste\RAÇÕES.xlsx')
 
+caminho = r'C:\Users\RH1\Desktop\Teste\RAÇÕES.xlsx'
 
 # Abre o arquivo Excel com o aplicativo associado
-os.system(f'start excel "{r'C:\Users\RH1\Desktop\VS\Estudos\Teste\RAÇÕES.xlsx'}"')
+os.system(f'start excel "{caminho}"')

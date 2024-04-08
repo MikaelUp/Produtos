@@ -78,3 +78,4 @@ workbook.save(r'C:\Users\RH1\Desktop\VS\Estudos\Teste\RAÇÕES.xlsx')
 
 # Abre o arquivo Excel com o aplicativo associado
 os.system(f'start excel "{r'C:\Users\RH1\Desktop\VS\Estudos\Teste\RAÇÕES.xlsx'}"')
+print('TESTANDO')
